@@ -25,7 +25,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js', 'src/database/migrations/*'],
   rules: {
     'unicorn/prefer-module': 0,
     'import/prefer-default-export': 'off',
