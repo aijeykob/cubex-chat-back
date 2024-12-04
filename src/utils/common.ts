@@ -1,7 +1,7 @@
 export const CORS_OPTIONS = {
   origin: [
     'http://localhost:3000',
-    'https://cubex-chat-front-production.up.railway.app/',
+    'https://cubex-chat-front-production.up.railway.app',
     'http://localhost', // for postman
   ], // or '*' or whatever is required
   allowedHeaders: [
