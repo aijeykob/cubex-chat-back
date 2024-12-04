@@ -1,0 +1,48 @@
+version: '3.9'
+
+volumes:
+  postgres_data__: {}
+  node_modules: {}
+
+services:
+  cubex-chat-back:
+    container_name: cubex-chat-back
+    build:
+      dockerfile: Dockerfile1
+      context: .
+      target: development
+    env_file:
+      - .env.development
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    command: npm run start:dev
+    ports:
+      - "5000:5000"
+    depends_on:
+      - cubex-chat-postgres
+    networks:
+      - network
+      - shared
+
+  cubex-chat-postgres:
+    container_name: cubex-chat-postgres
+    image: postgres:14.5-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'cubex_chat_db'
+    ports:
+      - '9209:5432'
+    volumes:
+      - postgres_data__:/var/lib/postgresql/data
+    networks:
+      - network
+
+networks:
+  network:
+  shared:
+    external: true
