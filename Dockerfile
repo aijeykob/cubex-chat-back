@@ -9,6 +9,8 @@ RUN npm ci
 # Копируем весь проект
 COPY . .
 
+RUN npm run build
+
 # Устанавливаем права на выполнение entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
