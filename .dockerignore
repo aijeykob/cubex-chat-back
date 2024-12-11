@@ -1,4 +1,4 @@
-Dockerfile1
+Dockerfile-local
 .dockerignore
 .git
 node_modules

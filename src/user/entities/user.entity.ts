@@ -13,5 +13,8 @@ export class User extends EntityHelper {
   lastName: string;
 
   @Column({ nullable: true, default: undefined })
+  avatar: string;
+
+  @Column({ nullable: true, default: undefined })
   password?: string;
 }

@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { validate } from 'class-validator';
 import { DataSource } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { join } from 'node:path';
+import { ServeStaticModule } from '@nestjs/serve-static';
 import { AppService } from './app.service';
 import { ChatModule } from './chat/chat.module';
 import databaseConfig from './config/database.config';
@@ -25,6 +27,10 @@ import { TypeOrmConfigService } from './database/typeorm-config.service';
       dataSourceFactory: async (options) => {
         return new DataSource(options).initialize();
       },
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, 'assets'),
+      serveRoot: '/static',
     }),
     UserModule,
     ChatModule,

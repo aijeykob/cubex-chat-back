@@ -2,13 +2,12 @@ version: '3.9'
 
 volumes:
   postgres_data__: {}
-  node_modules: {}
 
 services:
   cubex-chat-back:
     container_name: cubex-chat-back
     build:
-      dockerfile: Dockerfile1
+      dockerfile: Dockerfile-local
       context: .
       target: development
     env_file:
@@ -17,7 +16,6 @@ services:
       - NODE_ENV=development
     volumes:
       - .:/usr/src/app
-      - node_modules:/usr/src/app/node_modules
     command: npm run start:dev
     ports:
       - "5000:5000"

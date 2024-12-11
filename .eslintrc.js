@@ -37,6 +37,8 @@ module.exports = {
     'unicorn/no-abusive-eslint-disable': 'off',
     'unicorn/prevent-abbreviations': 'off',
     'class-methods-use-this': 'off',
+    'no-await-in-loop': 'off',
+    'no-restricted-syntax': 'off',
     '@darraghor/nestjs-typed/injectable-should-be-provided': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'unicorn/no-null': 'off',
